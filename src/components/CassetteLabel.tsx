@@ -1,12 +1,11 @@
 import { Box } from "@mui/material";
 import { GridOverylay } from "./GridOverlay.tsx";
 
-import JP0Cover from "../assets/JP0 2024 cover photoshop.png";
-import JP0Inside from "../assets/JP0 2024 inside photoshop.png";
+import LabelTemplateImage from "../assets/CL-WIDE-1UP photoshop.png";
 
 import { Image } from "mui-image";
 
-interface JCardOptions {
+interface CasetteLabelOptions {
   width: number;
   height: number;
   backgroundColor?: string;
@@ -14,22 +13,19 @@ interface JCardOptions {
   showGrid?: boolean;
   showTemplate?: boolean;
   children?: React.ReactNode;
-  layoutType?: JLayoutType;
 }
 
-type JLayoutType = "cover" | "inside";
 
-export function JCard({
+export function CassetteLabel({
   width,
   height,
   backgroundColor,
   gridSize = 24,
   showGrid = false,
   showTemplate = false,
-  layoutType = "cover",
   children,
-}: JCardOptions) {
-  const templateImage = layoutType === "cover" ? JP0Cover : JP0Inside;
+}: CasetteLabelOptions) {
+  const templateImage = LabelTemplateImage;
 
   return (
     <Box
@@ -48,7 +44,7 @@ export function JCard({
         {showTemplate && (
           <Image
             src={templateImage}
-            alt="JP0 2024 cover"
+            alt="CasetteLabelTemplate"
             width={width}
             height={height}
             style={{

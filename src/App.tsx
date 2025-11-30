@@ -1,73 +1,68 @@
-import {Box, Checkbox, FormControlLabel, FormGroup, Paper} from "@mui/material";
+import {
+  Box,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Tabs,
+  Tab,
+  ThemeProvider,
+  createTheme, CssBaseline,
+} from "@mui/material";
 
-import {useState} from "react";
+import { useState } from "react";
 
-
-
-import './App.css'
+import "./App.css";
 import LayoutBaculite2025 from "./layouts/LayoutBaculite2025.tsx";
 import LayoutAbyssal2025 from "./layouts/LayoutAbyssal2025.tsx";
-
 
 /**
  *
  * @constructor
  */
 function App() {
-
   const coverWidth = 1400;
-  const coverHeight = 1400;
+  // const coverHeight = 1400;
   const gridSize = 24;
 
-  const textColor = '#9E4219'
-  const foregroundColor = '#ABAAAA'
+  const textColor = "#9E4219";
+  const foregroundColor = "#ABAAAA";
+  const backgroundColor = "#7c7979";
 
-  const gw = (n: number) => n * (coverWidth / gridSize)
-  const gh = (n: number) => n * (coverHeight / gridSize)
-
-  const styles = {
-    coverTextStyle: {
-      position: 'absolute',
-      top: gh(16),
-      left: gw(11.5),
-      color: textColor,
-      height: gh(4),
-      width: gw(10),
-      textShadow: `1px 1px 1px ${foregroundColor}`,
-      // textShadow: `1px 1px 1px black`,
-      zIndex: 2,
-      // fontKerning: 'normal',
-      letterSpacing: '-0.08em',
-      fontFamily: 'serif',
-      fontSize: '8rem',
-      lineHeight: '0.625',
-      scale: '1 1.625',
-      // scale: '1 0.625',
-      textAlign: 'justify',
-      display: 'inline-block'
-    }
-  }
+  const theme = createTheme({
+    palette: {
+      mode: "light",
+      background: {
+        default: foregroundColor,
+      },
+      primary: {
+        main: textColor,
+      }
+    },
+  });
 
   const [showGrid, setShowGrid] = useState(false);
   const [showTemplate, setShowTemplate] = useState(false);
+  const [selectedTab, setSelectedTab] = useState(0);
 
   return (
-    <div
-      style={{width: '100%'}}
-    >
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div style={{ width: "100%" }}>
       <Box
         sx={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '100vh',
-          height: '100vh',
-        }}>
+          display: "flex",
+          flexDirection: "row",
+          // width: "100vh",
+          height: "100vh",
+        }}
+      >
         <Box
           sx={{
-            minWidth: '12.5%',
-            height: 'calc(100vh - 10px)',
-            border: '1px solid magenta',
-            padding: 2
+            minWidth: "12.5%",
+            height: "calc(100vh - 10px)",
+
+            border: `1px solid ${foregroundColor}`,
+            padding: 2,
           }}
         >
           {/* Layout Controls ****************************************************/}
@@ -95,34 +90,45 @@ function App() {
 
         <Box
           sx={{
-            overflowY: 'scroll',
+            overflowY: 'hidden',
             minWidth: coverWidth + 48,
+            width: '100%',
+            height: 'calc(100vh - 10px)',
+            padding: 2,
           }}
         >
+          <Tabs
+            value={selectedTab}
+            onChange={(_, newValue) => setSelectedTab(newValue)}
+          >
+            <Tab label="Baculite" />
+            <Tab label="Abyssal" />
+          </Tabs>
 
-          <LayoutBaculite2025
-            width={coverWidth}
-            height={coverWidth}
-            gridSize={gridSize}
-            showGrid={showGrid}
-            showTemplate={showTemplate}
-          />
+          {selectedTab === 0 && (
+            <LayoutBaculite2025
+              width={coverWidth}
+              height={coverWidth}
+              gridSize={gridSize}
+              showGrid={showGrid}
+              showTemplate={showTemplate}
+            />
+          )}
 
-          <LayoutAbyssal2025
-            width={coverWidth}
-            height={coverWidth}
-            gridSize={gridSize}
-            showGrid={showGrid}
-            showTemplate={showTemplate}
-          />
-
-          <Box marginTop={8}>
-          </Box>
-
+          {selectedTab === 1 && (
+            <LayoutAbyssal2025
+              width={coverWidth}
+              height={coverWidth}
+              gridSize={gridSize}
+              showGrid={showGrid}
+              showTemplate={showTemplate}
+            />
+          )}
         </Box>
       </Box>
     </div>
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

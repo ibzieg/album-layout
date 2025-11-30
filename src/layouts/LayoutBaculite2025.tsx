@@ -1,10 +1,12 @@
-import { Box, Checkbox, FormControlLabel, FormGroup, Typography } from "@mui/material";
-import { Image } from 'mui-image'
-import { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import { Image } from "mui-image";
 
-import {JCard} from "../components/JCard.tsx";
-import shopImage from '../assets/download-shop-gray-d3.png'
-import tunnelImage from '../assets/tunnel-d2-1400.png'
+import { JCard } from "../components/JCard.tsx";
+import shopImage from "../assets/download-shop-gray-d3.png";
+import tunnelImage from "../assets/tunnel-d2-1400.png";
+import {CassetteLabel} from "../components/CassetteLabel.tsx";
+import config from "../config.ts";
+import stoneArchesImage from "../assets/stone-arches-d4.png";
 
 interface LayoutBaculite2025Props {
   width: number;
@@ -18,28 +20,25 @@ interface LayoutBaculite2025Props {
  *
  * @constructor
  */
-export function LayoutBaculite2025(
-  {
-    width = 1400,
-    height = 1400,
-    gridSize = 24,
-    showGrid = false,
-    showTemplate = false,
-  }: LayoutBaculite2025Props
-) {
-
+export function LayoutBaculite2025({
+  width = 1400,
+  height = 1400,
+  gridSize = 24,
+  showGrid = false,
+  showTemplate = false,
+}: LayoutBaculite2025Props) {
   const coverWidth = width;
   const coverHeight = height;
 
-  const textColor = '#9E4219'
-  const foregroundColor = '#ABAAAA'
+  const textColor = "#9E4219";
+  const foregroundColor = "#ABAAAA";
 
-  const gw = (n: number) => n * (coverWidth / gridSize)
-  const gh = (n: number) => n * (coverHeight / gridSize)
+  const gw = (n: number) => n * (coverWidth / gridSize);
+  const gh = (n: number) => n * (coverHeight / gridSize);
 
   const styles = {
     coverTextStyle: {
-      position: 'absolute',
+      position: "absolute",
       top: gh(16),
       left: gw(11.5),
       color: textColor,
@@ -49,21 +48,22 @@ export function LayoutBaculite2025(
       // textShadow: `1px 1px 1px black`,
       zIndex: 2,
       // fontKerning: 'normal',
-      letterSpacing: '-0.08em',
-      fontFamily: 'serif',
-      fontSize: '8rem',
-      lineHeight: '0.625',
-      scale: '1 1.625',
+      letterSpacing: "-0.08em",
+      fontFamily: "serif",
+      fontSize: "8rem",
+      lineHeight: "0.625",
+      scale: "1 1.625",
       // scale: '1 0.625',
-      textAlign: 'justify',
-      display: 'inline-block'
-    }
-  }
+      textAlign: "justify",
+      display: "inline-block",
+    },
+  };
 
   return (
     <Box
       sx={{
-        overflowY: 'scroll',
+        overflowY: "scroll",
+        height: 'calc(100% - 10px)',
         minWidth: coverWidth + 24,
       }}
     >
@@ -79,14 +79,18 @@ export function LayoutBaculite2025(
           showTemplate={showTemplate}
         >
           {/* Background Image *************************************************/}
-          <Image src={shopImage} alt="Shop Image"
-                 width={coverWidth}
-                 height={coverHeight}
-                 style={{
-                   position: 'absolute', top: 0, left: 0,
-                   zIndex: 1,
-                 }}
-                 duration={0}
+          <Image
+            src={shopImage}
+            alt="Shop Image"
+            width={coverWidth}
+            height={coverHeight}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+            }}
+            duration={0}
           />
 
           {/* Artist Title *****************************************************/}
@@ -94,16 +98,16 @@ export function LayoutBaculite2025(
             variant="h3"
             component="div"
             sx={{
-              position: 'absolute',
+              position: "absolute",
               top: gh(4),
               left: gw(13.25),
               color: textColor,
               textShadow: `1px -1px 1px ${foregroundColor}`,
               zIndex: 2,
-              letterSpacing: '-0.08em',
-              fontFamily: 'serif',
-              fontSize: '8rem',
-              scale: '1 -1.625',
+              letterSpacing: "-0.08em",
+              fontFamily: "serif",
+              fontSize: "8rem",
+              scale: "1 1.625",
             }}
           >
             Baculite
@@ -116,8 +120,9 @@ export function LayoutBaculite2025(
             sx={{
               ...styles.coverTextStyle,
               top: gh(14.5),
-              letterSpacing: '0.5em',
-            }}>
+              letterSpacing: "0.5em",
+            }}
+          >
             Erase
           </Typography>
           <Typography
@@ -126,8 +131,9 @@ export function LayoutBaculite2025(
             sx={{
               ...styles.coverTextStyle,
               top: gh(16.75),
-              letterSpacing: '-0.01em',
-            }}>
+              letterSpacing: "-0.01em",
+            }}
+          >
             Permanent
           </Typography>
           <Typography
@@ -136,8 +142,9 @@ export function LayoutBaculite2025(
             sx={{
               ...styles.coverTextStyle,
               top: gh(19.0),
-              letterSpacing: '-0.094em',
-            }}>
+              letterSpacing: "-0.094em",
+            }}
+          >
             Infrastructure
           </Typography>
 
@@ -151,13 +158,13 @@ export function LayoutBaculite2025(
               top: gh(0),
               left: gw(0),
               width: gh(24),
-              letterSpacing: '-0.092em',
+              letterSpacing: "-0.092em",
               transform: `rotate(90deg) translate(${gh(12.1)}px, ${gh(6)}px)`,
-              fontSize: '4.5rem',
-            }}>
+              fontSize: "4.5rem",
+            }}
+          >
             Erase Permanent Infrastructure
           </Typography>
-
         </JCard>
       </Box>
 
@@ -172,16 +179,19 @@ export function LayoutBaculite2025(
           layoutType="inside"
         >
           {/* Background Image *************************************************/}
-          <Image src={tunnelImage} alt="Tunnel Image"
-                 width={coverWidth}
-                 height={coverHeight}
-                 style={{
-                   position: 'absolute', top: 0, left: 0,
-                   zIndex: 1,
-                 }}
-                 duration={0}
+          <Image
+            src={tunnelImage}
+            alt="Tunnel Image"
+            width={coverWidth}
+            height={coverHeight}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+            }}
+            duration={0}
           />
-
 
           <Typography
             variant="h3"
@@ -191,27 +201,108 @@ export function LayoutBaculite2025(
               left: gw(2.125),
               top: gh(4.75),
               width: gw(13),
-              fontSize: '3.75rem',
-              lineHeight: '1.125',
-              letterSpacing: '-0.01em',
-            }}>
-            1. Access Tunnel<br/>
-            2. Permanent Burden<br/>
-            3. Voices Under the Floor<br/>
-            4. Destroyed Core<br/>
-            5. Collection of Remains<br/>
-            <br/>
-            6. Operation Morning Light<br/>
-            7. Remove Foundation<br/>
-            8. Rapid Dissolution<br/>
+              fontSize: "3.75rem",
+              lineHeight: "1.125",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            1. Access Tunnel
+            <br />
+            2. Permanent Burden
+            <br />
+            3. Voices Under the Floor
+            <br />
+            4. Destroyed Core
+            <br />
+            5. Collection of Remains
+            <br />
+            <br />
+            6. Operation Morning Light
+            <br />
+            7. Remove Foundation
+            <br />
+            8. Rapid Dissolution
+            <br />
           </Typography>
-
         </JCard>
+      </Box>
+      <Box marginTop={8}>
+        <Typography variant={"h2"}>Label</Typography>
+        <CassetteLabel
+          width={config.cassetteLabel.width}
+          height={config.cassetteLabel.height}
+          gridSize={gridSize}
+          showGrid={showGrid}
+          showTemplate={showTemplate}
+        >
+          {/* Background Image *************************************************/}
+          <Image
+            src={stoneArchesImage}
+            alt="CD"
+            width={config.cassetteLabel.width}
+            height={config.cassetteLabel.width}
+            style={{
+              objectFit: "fill",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              zIndex: 1,
+            }}
+            duration={0}
+          />
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              ...styles.coverTextStyle,
+              left: gw(1),
+              top: gh(-4.0),
+              width: gw(13),
+              fontSize: "3.75rem",
+              lineHeight: "1.125",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            <Typography
+              variant="h3"
+              component="div"
+              sx={{
+                ...styles.coverTextStyle,
+                color: textColor,
+                textShadow: `1px 1px 1px ${foregroundColor}`,
+                left: gw(9.75),
+                top: gh(6.0),
+                width: gw(20),
+                fontSize: "2.75rem",
+                lineHeight: "1.125",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Baculite
+            </Typography>
+            <Typography
+              variant="h3"
+              component="div"
+              sx={{
+                ...styles.coverTextStyle,
+                color: textColor,
+                textShadow: `1px 1px 1px ${foregroundColor}`,
+                left: gw(6.9),
+                top: gh(9.8),
+                width: gw(20),
+                fontSize: "2.5rem",
+                lineHeight: "1.125",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Erase Permanent Infrastructure
+            </Typography>
+          </Typography>
+        </CassetteLabel>
       </Box>
 
     </Box>
-
-  )
+  );
 }
 
 export default LayoutBaculite2025;

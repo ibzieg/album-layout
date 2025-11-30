@@ -1,4 +1,3 @@
-
 const DEFAULT_GRID_SIZE = 24;
 
 interface GridOverlayProps {
@@ -9,14 +8,13 @@ interface GridOverlayProps {
   strokeWidth?: number;
 }
 
-
 export function GridOverylay({
   width,
   height,
   size = DEFAULT_GRID_SIZE,
   color = "yellow",
-  strokeWidth = 0.5
-}: GridOverlayProps){
+  strokeWidth = 0.5,
+}: GridOverlayProps) {
   const columnSize = width / size;
   const rowSize = height / size;
 
@@ -24,7 +22,13 @@ export function GridOverylay({
     <svg
       width={width}
       height={height}
-      style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none", zIndex: 2 }}
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        pointerEvents: "none",
+        zIndex: 2,
+      }}
     >
       <defs>
         <pattern
