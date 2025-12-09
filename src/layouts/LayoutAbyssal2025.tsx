@@ -206,6 +206,28 @@ export function LayoutBaculite2025({
           >
             Abyssal Fluid / Revenue Streams
           </Typography>
+
+
+          {/* Catalog Index *****************************************************/}
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              position: "absolute",
+              top: gh(20.5),
+              left: gw(1.5),
+              // color: textColor,
+              textShadow: `1px -1px 1px ${foregroundColor}`,
+              zIndex: 2,
+              letterSpacing: "-0.08em",
+              fontFamily: "serif",
+              fontSize: "5.5rem",
+              scale: "1 1.625",
+              color: "black"
+            }}
+          >
+            Zi-0001
+          </Typography>
         </JCard>
       </Box>
 
@@ -259,6 +281,7 @@ export function LayoutBaculite2025({
             <br />
             5. Methamphetamine Loop
             <br />
+            <br />
             6. Segmented Body
             <br />
             7. Time Warp{" "}
@@ -273,6 +296,34 @@ export function LayoutBaculite2025({
             8. Isolation
             <br />
           </Typography>
+
+          {/* Credits *****************************************************/}
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              ...styles.coverTextStyle,
+              color: "black",
+              top: gh(0),
+              left: gw(14.65),
+              width: gh(24),
+              letterSpacing: "-0.092em",
+              transform: `rotate(90deg) translate(${gh(12.0)}px, ${gh(6)}px)`,
+              fontSize: "2rem",
+              scale: "1.25 1.75",
+            }}
+          >
+            {`Recorded 2022`}
+            <br />
+            <span style={{ fontFamily: 'monospace', fontSize: '1.5rem'}}>A.A.:</span>
+            Vocals, Tapes, Samples, Microphones
+            <br />
+            <span style={{ fontFamily: 'monospace', fontSize: '1.5rem'}}>I.Z.:</span>
+            Electronics, Production
+            <br />
+            Additional Synthesizers by <span style={{ fontFamily: 'monospace', fontSize: '1.5rem'}}>E.B.</span>
+          </Typography>
+
         </JCard>
       </Box>
 
@@ -348,8 +399,6 @@ export function LayoutBaculite2025({
             >
               Revenue Streams
             </Typography>
-
-
           </Typography>
         </CassetteLabel>
       </Box>

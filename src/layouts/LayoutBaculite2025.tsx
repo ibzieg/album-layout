@@ -165,6 +165,27 @@ export function LayoutBaculite2025({
           >
             Erase Permanent Infrastructure
           </Typography>
+
+          {/* Catalog Index *****************************************************/}
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              position: "absolute",
+              top: gh(20.5),
+              left: gw(1.5),
+              color: textColor,
+              textShadow: `1px -1px 1px ${foregroundColor}`,
+              zIndex: 2,
+              letterSpacing: "-0.08em",
+              fontFamily: "serif",
+              fontSize: "5.5rem",
+              scale: "1 1.625"
+            }}
+          >
+            Zi-0003
+          </Typography>
+
         </JCard>
       </Box>
 
@@ -224,6 +245,28 @@ export function LayoutBaculite2025({
             8. Rapid Dissolution
             <br />
           </Typography>
+
+          {/* Credits *****************************************************/}
+          <Typography
+            variant="h3"
+            component="div"
+            sx={{
+              ...styles.coverTextStyle,
+              top: gh(0),
+              left: gw(14.65),
+              width: gh(24),
+              letterSpacing: "-0.092em",
+              transform: `rotate(90deg) translate(${gh(12.0)}px, ${gh(6)}px)`,
+              fontSize: "2rem",
+              scale: "1.25 1.75",
+            }}
+          >
+            {`Recorded 2023-2025`}
+            <br />
+            <span style={{ fontFamily: 'monospace', fontSize: '1.5rem'}}>I.Z.:</span>
+            Electronics, Microphones, Software, Production
+          </Typography>
+
         </JCard>
       </Box>
       <Box marginTop={8}>
